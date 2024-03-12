@@ -15,16 +15,7 @@ export default class App extends Application {
     },
     replication: {
       dependencies: {
-        services: [
-          'auth',
-          'flash-messages',
-          'namespace',
-          'replication-mode',
-          'router',
-          'store',
-          'version',
-          'wizard',
-        ],
+        services: ['auth', 'flash-messages', 'namespace', 'replication-mode', 'router', 'store', 'version'],
         externalRoutes: {
           replication: 'vault.cluster.replication.index',
         },
@@ -40,7 +31,23 @@ export default class App extends Application {
           'router',
           'store',
           'version',
-          'wizard',
+          'secret-mount-path',
+        ],
+        externalRoutes: {
+          secrets: 'vault.cluster.secrets.backends',
+        },
+      },
+    },
+    pki: {
+      dependencies: {
+        services: [
+          'auth',
+          'flash-messages',
+          'namespace',
+          'path-help',
+          'router',
+          'store',
+          'version',
           'secret-mount-path',
         ],
         externalRoutes: {
